@@ -7,6 +7,14 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+ /* Requerimiento inicio de sesion */
+ /* addEventListener('onload', loguear())
+ function loguear(){ 
+ if ((localStorage.getItem('usuario') == "null" ) ||(localStorage.getItem('usuario') == "" ) ) {
+ alert("Por favor inicie sesion");  
+ window.location.href="index.html" }} */
+ 
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -23,7 +31,7 @@ var getJSONData = function(url){
       if (response.ok) {
         return response.json();
       }else{
-        throw Error(response.statusText);
+        throw alert( Error(response.statusText));
       }
     })
     .then(function(response) {
@@ -45,3 +53,5 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+
