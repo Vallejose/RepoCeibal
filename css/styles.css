@@ -138,10 +138,16 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
-  
 }
 
-#errores{
+#errorEmail{
   color: red;
   font-weight: bold;
 }
+
+#errorPassword{
+  color: red;
+  font-weight: bold;
+}
+
+

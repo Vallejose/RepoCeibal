@@ -7,14 +7,6 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
- /* Requerimiento inicio de sesion */
- /* addEventListener('onload', loguear())
- function loguear(){ 
- if ((localStorage.getItem('usuario') == "null" ) ||(localStorage.getItem('usuario') == "" ) ) {
- alert("Por favor inicie sesion");  
- window.location.href="index.html" }} */
- 
-
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -31,7 +23,7 @@ var getJSONData = function(url){
       if (response.ok) {
         return response.json();
       }else{
-        throw alert( Error(response.statusText));
+        throw Error(response.statusText);
       }
     })
     .then(function(response) {
@@ -55,3 +47,29 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 
+
+ document.addEventListener("onload", prueba()) 
+var data = sessionStorage.getItem('user')
+
+ // Verificacion de inicio de sesion
+function prueba(){
+    var miStorage = window.sessionStorage;
+  var email = miStorage.getItem('email');
+  var password = miStorage.getItem('password');
+  
+
+  if( (email == null) || (password == null)) {
+    alert('por favor inicie sesion');   
+    window.location.href="login.html"    
+  } 
+  }
+
+    // Mostrar usuario en barra superior
+  function mostrarUsuario(){
+    var usuarioActivo = sessionStorage.getItem('email');
+    document.getElementById('usuario').innerHTML = usuarioActivo
+  }
+
+  document.addEventListener('onload', mostrarUsuario())
+
+  
