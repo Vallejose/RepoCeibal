@@ -75,23 +75,31 @@ function mayorRelevancia(){
   showProductsArray(pOrdenados[0]);
   }
 
-  // Filtrar <= 14000
-  function filtradoMenorQue(){
+  // Filtrar Mminimo
+  var minimo = document.querySelector('#minimo')
+  minimo.addEventListener('keyup',filtradoMinimo )
+
+  function filtradoMinimo(){
     var filtradoBaratos = [];
-    for(i = 0; i< productsArray.length; i++){        
-        if (productsArray[i].cost <= 14000){
+    for(i = 0; i < productsArray.length; i++){        
+        if (productsArray[i].cost >= minimo.value){
             filtradoBaratos.push(productsArray[i])
             showProductsArray(filtradoBaratos) 
         }
         
     }
   }
+  
 
-  // Filtrar >= 14000
-  function filtradoMayorQue(){
+  // Filtrar Maximo
+
+  var maximo = document.querySelector('#maximo')
+  maximo.addEventListener('keyup',filtradoMaximo )
+
+  function filtradoMaximo(){
     var filtradoCaro = [];
     for(i = 0; i< productsArray.length; i++){        
-        if (productsArray[i].cost >= 14000){
+        if (productsArray[i].cost <= maximo.value){
             filtradoCaro.push(productsArray[i])
             showProductsArray(filtradoCaro) 
         }
