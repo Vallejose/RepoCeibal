@@ -9,7 +9,7 @@ function showProductsArray(array){
         let category = array[i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action"  onclick="desplegar()">
             <div class="row">
                 <div class="col-3">
                     <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -75,37 +75,68 @@ function mayorRelevancia(){
   showProductsArray(pOrdenados[0]);
   }
 
-  // Filtrar Mminimo
+
   var minimo = document.querySelector('#minimo')
-  minimo.addEventListener('keyup',filtradoMinimo )
+  var maximo = document.querySelector('#maximo')  
 
-  function filtradoMinimo(){
-    var filtradoBaratos = [];
-    for(i = 0; i < productsArray.length; i++){        
-        if (productsArray[i].cost >= minimo.value){
-            filtradoBaratos.push(productsArray[i])
-            showProductsArray(filtradoBaratos) 
-        }
-        
-    }
-  }
+
+  // Filtrar ambos
   
-
-  // Filtrar Maximo
-
-  var maximo = document.querySelector('#maximo')
-  maximo.addEventListener('keyup',filtradoMaximo )
-
-  function filtradoMaximo(){
-    var filtradoCaro = [];
-    for(i = 0; i< productsArray.length; i++){        
-        if (productsArray[i].cost <= maximo.value){
-            filtradoCaro.push(productsArray[i])
-            showProductsArray(filtradoCaro) 
+  function  filtradoAmbos(){
+    var filtradoAmbos = [];
+    for(i = 0; i < productsArray.length; i++){        
+        if (productsArray[i].cost >= minimo.value && productsArray[i].cost <= maximo.value){
+            filtradoAmbos.push(productsArray[i])
+            showProductsArray(filtradoAmbos) 
         }
         
     }
-  }
+  }  
+
+   // Filtrar Mminimo  
+   function filtradoMinimo(){
+     var filtradoBaratos = [];
+     for(i = 0; i < productsArray.length; i++){        
+         if (productsArray[i].cost >= minimo.value){
+             filtradoBaratos.push(productsArray[i])
+             showProductsArray(filtradoBaratos) 
+         }
+         
+     }
+   }   
+ 
+   // Filtrar Maximo 
+   function filtradoMaximo(){
+     var filtradoCaro = [];
+     for(i = 0; i< productsArray.length; i++){        
+         if (productsArray[i].cost <= maximo.value){
+             filtradoCaro.push(productsArray[i])
+             showProductsArray(filtradoCaro) 
+         }         
+     }
+   }
+
+   // Funcion de filtrado
+  
+   function mostrarFiltradoMinimo() {
+    if(maximo.value == null){
+        filtradoMinimo()
+    }else{
+        filtradoAmbos()
+    }
+   }
+
+   function mostrarFiltradoMaximo(){
+       if(minimo.value == null){
+           filtradoMaximo()
+       }else {
+           filtradoAmbos()
+       }
+   }
+
+   minimo.addEventListener('keyup',mostrarFiltradoMinimo)
+    maximo.addEventListener('keyup', mostrarFiltradoMaximo)
+
 
   // Funcion Buscador
   const buscador = document.querySelector('#buscador');
@@ -162,4 +193,16 @@ function mayorRelevancia(){
 
 
      */
+
+    function desplegar(){
+        window.location.href="product-info.html"
+    }
    
+
+
+// DESAFIATE 2.0
+
+   /* const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const page_type = urlParams.get('page_type')
+console.log(page_type); */

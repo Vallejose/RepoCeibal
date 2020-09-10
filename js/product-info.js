@@ -9,6 +9,7 @@ function showImagesGallery(array) {
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
+        
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
@@ -31,12 +32,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
             let categoryDescriptionHTML = document.getElementById("categoryDescription");
             let productCountHTML = document.getElementById("productCount");
             let productCriteriaHTML = document.getElementById("productCriteria");
+            let productcategory = document.getElementById("productCategoria")
 
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
-
+            productCountHTML.innerHTML = category.soldCount;
+            productCriteriaHTML.innerHTML = category.cost + "" + category.currency;
+            productcategory.innerHTML = category.category
 
         }
     });
@@ -50,12 +52,11 @@ function showComentsArray(array) {
         let coments = array[i];
 
         htmlcoments += `
-      
+     
         
         <div class="col">
         <div class="row">
-        <div class="list-group-item list-group-item-action">
-            
+        <div class="list-group-item list-group-item-action">        
                 <div class="col-3">
                 <small class="text-muted">` + coments.score + ` </small>
                 </div>
@@ -65,7 +66,7 @@ function showComentsArray(array) {
                     </div>
                     <div>
                         <p>` + coments.description + `</p>
-                        <p>` + coments.dataTime + `</p>
+                        <p>` + coments.dateTime + `</p>
                     </div>
                 </div>
                 

@@ -12,7 +12,10 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8fdbbfabb5.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -29,41 +32,109 @@
 
   <main role="main">
     <div class="container mt-5">
+    <!-- Cabecera -->
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
         <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>       
       </div>
-      <h3 id="categoryName"></h3>
+      <!-- Descripcion del producto -->
+      <div class="conteiner" id="dProducto">
+      <h2 id="categoryName"></h2>
       <hr class="my-3">
       <dl>
+        <dt>Categoria</dt>
+        <dd>
+          <p id="productCategoria"></p>
+        </dd>
         <dt>Descripción</dt>
         <dd>
           <p id="categoryDescription"></p>
         </dd>
 
-        <dt>Cantidad de productos en la categoría</dt>
+        <dt>Productos vendidos</dt>
         <dd>
           <p id="productCount"></p>
         </dd>
 
-        <dt>Criterio para incluir productos en esta categoría</dt>
+        <dt>Precio</dt>
         <dd>
           <p id="productCriteria"></p>
         </dd>
-
-        <dt>Imágenes ilustrativas</dt>
+        
+      </div>
+    
+      <!-- Imagenes -->
+      <div class="container mt-5" id="oculto">
         <dd>
+          
+            <dt>Imágenes ilustrativas</dt>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
+            
         </dd>
-      </dl>
+      
+    </div>
+
+  </div>
+
+  <div class="conteiner p-2">
       <a type="button" class="btn btn-light btn-lg btn-block" onclick="showImagesGallery(category)">Ver Imagenes</a>
     </div>
 
-    <div class="conteiner" id="coment">
+    <hr class="my-3">
+
+    <!-- Comentarios -->
+    <div class="conteiner">
+    <div class="col" id="coment">
+    </div>
     </div>
 
+    <div class="conteiner">
+      <div class="col-md-12 justify-content-center">
+      <form class="form-horizontal" method="post">
+      <fieldset>
+
+        <hr class="my-3">
+
+        <!-- Publicar comentario -->
+      <div class="form-group">
+        <h2>Ingrese su comentario</h2>
+        <div class="col-md-8">
+            <input id="usuario" name="usuario" type="text" placeholder="usuaruo" class="form-control">
+        </div>
     </div>
+
+   
+    <div class="rating">
+      <input type="radio" id="star1"><label for="star1"></label>
+      <input type="radio" id="star2"><label for="star2"></label>
+      <input type="radio" id="star3"><label for="star3"></label>
+      <input type="radio" id="star4"><label for="star4"></label>
+      <input type="radio" id="star5"><label for="star5"></label>
+    </div>
+    
+
+
+    <div class="form-group" id="cComentario">
+        
+        <div class="col-md-8">
+            <textarea class="form-control" id="message" name="message" placeholder="Ingrese su comentario." rows="7"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary btn-lg">Publicar</button>
+        </div>
+    </div>
+
+    <fieldset>
+    </form>
+  </div>
+    </div>
+
+    
+   
+
   </main>
 
   <footer class="text-muted">
