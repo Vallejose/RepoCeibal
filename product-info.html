@@ -15,6 +15,7 @@
   <link href="css/product-info.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/8fdbbfabb5.js" crossorigin="anonymous"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
 
@@ -84,6 +85,10 @@
 
     <!-- Comentarios -->
     <div class="conteiner">
+    <div class="conteiner text-center">
+      <h2>Comentarios</h2>
+    </div>
+    <div class="conteiner">
     <div class="col" id="coment">
     </div>
     </div>
@@ -97,33 +102,33 @@
 
         <!-- Publicar comentario -->
       <div class="form-group">
-        <h2>Ingrese su comentario</h2>
-        <div class="col-md-8">
-            <input id="usuario" name="usuario" type="text" placeholder="usuaruo" class="form-control">
-        </div>
-    </div>
-
-   
-    <div class="rating">
-      <input type="radio" id="star1"><label for="star1"></label>
-      <input type="radio" id="star2"><label for="star2"></label>
-      <input type="radio" id="star3"><label for="star3"></label>
-      <input type="radio" id="star4"><label for="star4"></label>
-      <input type="radio" id="star5"><label for="star5"></label>
+        <h2>Ingrese su comentario</h2>        
     </div>
     
+   <div class="conteiner mt-2" id="estrellas">
+    <div class="rating">
+     
+      <form name="calificacion" id="calificacion"> 
+      <input type="radio" name="estrella" id="star1" value="5"><label for="star1"></label>      
+      <input type="radio" name="estrella" id="star2" value="4"><label for="star2"></label>      
+      <input type="radio" name="estrella" id="star3" value="3"><label for="star3"></label>
+      <input type="radio" name="estrella" id="star4" value="2"><label for="star4"></label>
+      <input type="radio" name="estrella" id="star5" value="1"><label for="star5"></label>
+    </form> 
+    </div>
+    </div>
 
 
-    <div class="form-group" id="cComentario">
+    <div class="form-group " id="cComentario">
         
-        <div class="col-md-8">
+        <div class="col-md-8 mt-5">
             <textarea class="form-control" id="message" name="message" placeholder="Ingrese su comentario." rows="7"></textarea>
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-12 text-center">
-            <button type="button" class="btn btn-primary btn-lg">Publicar</button>
+            <button type="button" class="btn btn-primary btn-lg" id="publicar">Publicar</button>
         </div>
     </div>
 

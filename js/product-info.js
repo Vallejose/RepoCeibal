@@ -89,3 +89,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 `
     `
+    /*
+function puntuacionEstrellas(){
+    var valorE = document.calificacion.estrella
+    for(i = 0, i < valorE.length; i++; ){
+        if (valorE[i].checked){
+            alert(valorE.value)
+        }
+    }
+}
+var boton = document.getElementById('publicar')
+boton.addEventListener('onclick', puntuacionEstrellas())
+*/
+
+  /*  var calificacion = document.querySelectorAll('#valorEstrella')
+    function agregarComentarios(){
+        var comentario = document.getElementById('cComentario')
+        var usuario = window.sessionStorage.getItem('email')
+        
+        alert(calificacion.value) 
+    }
+    */
+    
+var puntuaciones = comentarios[score]
+function mostrarPuntuacion(){
+    for (let comentario of comentarios)
+    alert(puntuaciones)
+}
+   document.addEventListener('onload', mostrarPuntuacion())

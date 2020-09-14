@@ -94,16 +94,15 @@ function mayorRelevancia(){
   }  
 
    // Filtrar Mminimo  
-   function filtradoMinimo(){
-     var filtradoBaratos = [];
-     for(i = 0; i < productsArray.length; i++){        
-         if (productsArray[i].cost >= minimo.value){
-             filtradoBaratos.push(productsArray[i])
-             showProductsArray(filtradoBaratos) 
-         }
-         
-     }
-   }   
+   function filtradoM1ximo(){
+    var filtradoMinimo = [];
+    for(i = 0; i< productsArray.length; i++){        
+        if (productsArray[i].cost >= minimo.value){
+            filtradoMinimo.push(productsArray[i])
+            showProductsArray(filtradoMinimo) 
+        }         
+    }
+  }
  
    // Filtrar Maximo 
    function filtradoMaximo(){
