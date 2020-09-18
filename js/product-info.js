@@ -17,16 +17,45 @@ function showImagesGallery(array) {
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
-var boton = document.getElementById('mostrarImagenes')
-boton.addEventListener("onclick", function (e) {
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            catalogo = resultObj.data;
-            //Muestro las categorías ordenadas
-            showImagesGallery(catalogo);
+            category = resultObj.data;
+
+            let carruselImg = document.getElementById("productImagesGallery");
+            
+            
+
+           carruselImg.innerHTML = ` <div class="carousel-item active">
+            <img class="d-block w-100" src="` + category.images[0] + `" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="` + category.images[1] + `" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="` + category.images[2] + `" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="` + category.images[3] + `" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="` + category.images[4] + `" alt="Third slide">
+        </div>`
+            
+            
+            
+            
+            
+
         }
     });
 });
+
+
+
+
+
 
 
 
