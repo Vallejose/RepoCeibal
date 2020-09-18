@@ -62,12 +62,24 @@ function prueba(){
     alert('por favor inicie sesion');   
     window.location.href="login.html"    
   } 
+
+// Log out
+
+var logout = document.getElementById('logOut')
+logout.addEventListener('click',cerrarSesion)
+
+function cerrarSesion(){
+window.sessionStorage.removeItem('email')
+window.sessionStorage.removeItem('password')
+window.location.href="login.html"
+  alert('Accion exitosa')
+}
   }
 
     // Mostrar usuario en barra superior
   function mostrarUsuario(){
     var usuarioActivo = sessionStorage.getItem('email');
-    document.getElementById('usuario').innerHTML = usuarioActivo
+    document.getElementById('dropdownMenuButton').innerHTML = usuarioActivo
   }
 
   document.addEventListener('onload', mostrarUsuario())

@@ -1,4 +1,4 @@
-var category = {};
+var catalogo = {};
 
 function showImagesGallery(array) {
 
@@ -8,17 +8,27 @@ function showImagesGallery(array) {
         let imageSrc = array.images[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-        
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+        <div class="carousel-item active" data-interval="10000">
+              <img src="` + imageSrc + `" class="d-block w-100" alt="1000">
             </div>
-        </div>
+        
         `
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+var boton = document.getElementById('mostrarImagenes')
+boton.addEventListener("onclick", function (e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            catalogo = resultObj.data;
+            //Muestro las categorías ordenadas
+            showImagesGallery(catalogo);
+        }
+    });
+});
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -87,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-`
-    `
+
     /*
 function puntuacionEstrellas(){
     var valorE = document.calificacion.estrella
@@ -110,10 +119,40 @@ boton.addEventListener('onclick', puntuacionEstrellas())
         alert(calificacion.value) 
     }
     */
-    
+ /*   
 var puntuaciones = comentarios[score]
 function mostrarPuntuacion(){
     for (let comentario of comentarios)
     alert(puntuaciones)
 }
    document.addEventListener('onload', mostrarPuntuacion())
+
+*/
+
+   // Productos relacionados
+  
+
+            document.addEventListener("DOMContentLoaded", function (e) {
+                getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                    if (resultObj.status === "ok") {
+                        category = resultObj.data;
+            
+                        let primeraImagen = document.getElementById("imagen1");
+                        let primeraDescripcion = document.getElementById("descripcion1");
+                        let segundaImagen = document.getElementById("imagen2");
+                        let segundaDescripcion = document.getElementById("descripcion2");
+                        
+            
+                        primeraImagen.innerHTML = `<img src="` + category[1].imgSrc + `" class="d-block w-100" alt="1000"></img>` ;
+                        primeraDescripcion.innerHTML =  `<h2>` + category[1].name + `</h2>
+                                                        <p>` + category[1].currency + ` ` + category[1].cost + `</p>`
+                                                                                
+                        segundaImagen.innerHTML = `<img src="` + category[3].imgSrc + `" class="d-block w-100" alt="1000"></img>` ;
+                        segundaDescripcion.innerHTML =  `<h2>` + category[3].name + `</h2>
+                                                            <p>` + category[3].currency + ` ` + category[3].cost + `</p>`
+                        
+                        
+            
+                    }
+                });
+            });
