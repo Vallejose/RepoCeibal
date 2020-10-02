@@ -9,15 +9,15 @@ function productosCarrito(array){
         let category = array["articles"][i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action"  onclick="desplegar()">
+        <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + category.src + `"  class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name +`</h4>
-                        <small class="text-muted">` + category.count + ` artículos</small>
+                        <h4 class="mb-1">`+ category.name +`</h4>                        
+                        <input type="number" class="quantity" value='` + category.count + `' name="quantity" min="1">
 
                     </div>
                     <div>
@@ -48,27 +48,19 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-/*
 
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(CART_PRODUCT).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            category = resultObj.data;
+var cantidad = document.getElementsByClassName('quantity')
+var precio = document.getElementById('precio')
 
-            let categoryNameHTML  = document.getElementById("productosCarritos");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
-        
-            categoryNameHTML.innerHTML = category["articles"][1].name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
+function mostrarCuentas(){
+    var arrayCantidad = [];
+    var imputsValues = document.getElementsByClassName('quantity'),
+    nameValues = [].map.call(imputsValues, function(valuesImputs){
+        arrayCantidad.push(valuesImputs.value)
+    })
 
-            //Muestro las imagenes en forma de galería
-            showImagesGallery(category.images);
-        }
-    });
-});
-*/
+    console.log(arrayCantidad)
+}
+
+document.addEventListener('DOMContentLoaded',  mostrarCuentas() )
+
