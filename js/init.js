@@ -72,7 +72,7 @@ function cerrarSesion(){
 window.sessionStorage.removeItem('email')
 window.sessionStorage.removeItem('password')
 window.location.href="login.html"
-  alert('Accion exitosa')
+  alert('Acción exitosa')
 }
   }
 

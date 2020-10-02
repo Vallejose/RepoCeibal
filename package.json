@@ -1,0 +1,19 @@
+{
+  "name": "entrega-0",
+  "version": "1.0.0",
+  "description": "Prueba gitbush",
+  "main": "\u001b[Clogin.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vallejose/RepoCeibal.git"
+  },
+  "author": "Seba Vallejo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vallejose/RepoCeibal/issues"
+  },
+  "homepage": "https://github.com/Vallejose/RepoCeibal#readme"
+}
