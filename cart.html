@@ -52,6 +52,58 @@
       </div>
     </div>
   </nav>
+
+  <div class="container">
+
+    <div class="row "><h1>Mi carrito</h1></div>
+    <div class="row">
+      <div class="col-9 list-group-item" id="productosCarritos"></div>
+      <div class="col-3 list-group-item">
+        <h3>Tipo de entrega:</h3>
+        <input type="radio" name="entrega" id="premium" value="premium" >
+        <label for="Premium">Premium</label> </br>
+        <input type="radio" name="entrega" id="noPremium" value="noPremium">
+        <label for="noPremium">No premium</label> </br>
+        <hr>
+        <h3>Forma de pago:</h3>
+        <input type="radio" name="pago" id="banco" value="banco">
+        <label for="banco">Transferencia bancaria</label> </br>
+        <input type="radio" name="pago" id="credito" value="tarjeta">
+        <label for="credito">Tarjeta de credito</label> </br>
+        <input type="radio" name="pago" id="efectivo" value="efectivo">
+        <label for="efectivo">Efectivo</label> </br>
+      </div>
+      <div class="col"></div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-6 list-group-item">
+        <h2>Resumen</h2>
+        <label for="contacto">Sub total</label> </br>
+        <div id="subTotal">Monto subtotal</div>
+        <hr>
+        <label for="envio">Envio</label> </br>
+        <div id="envio">Monto subtotal</div>
+        <hr>
+        <label for="total">Total</label> </br>
+        <div id="total">Monto subtotal</div>
+      </div>
+      <div class="col-6 list-group-item">
+        <h3>Contacto</h3>
+        <label for="direccion">Direccion de entrega</label> </br>
+        <input class="input-group input-group-lg" type="text" id="direccion"> </br>
+        <label for="contacto">Telefono de contacto</label> </br>
+        <input class="input-group input-group-lg" type="text" id="contacto">
+      </div>
+    </div>
+    <div class="row " >
+        <button type="button" class="btn btn-block btn-lg btn-warning">Confirmar</button>
+    </div>
+
+    
+
+  </div>
  
   <div id="spinner-wrapper">
     <div class="lds-ring">
