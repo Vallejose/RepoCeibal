@@ -57,8 +57,24 @@
 
     <div class="row "><h1>Mi carrito</h1></div>
     <div class="row">
-      <div class="col-9 list-group-item" id="productosCarritos"></div>
-      <div class="col-3 list-group-item">
+      <div class="col-10 list-group-item">
+        <table>
+          <thead>
+            <tr class="table-active">
+              <th scope="d-flex flex-wrap">Imagen</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio total</th>
+            </tr>
+          </thead>
+          <tbody id="productosCarritos">
+            
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="col-2 list-group-item">
         <h3>Tipo de entrega:</h3>
         <input type="radio" name="entrega" id="premium" value="premium" >
         <label for="Premium">Premium</label> </br>

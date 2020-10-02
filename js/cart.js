@@ -9,6 +9,15 @@ function productosCarrito(array){
         let category = array["articles"][i];
 
         htmlContentToAppend += `
+        <tr class="table-warning">
+        <td class="d-flex flex-wrap"><img src="` + category.src + `"  class="img-thumbnail" width=35%></td>
+        <td>`+ category.name +`</td>
+        <td>` + category.currency + ` ` + category.unitCost + `</td>
+        <td><input type="number" class="quantity" name="quantity" min="1" onchange='calcular(this.value , ` + category.unitCost + `)'></td>
+        <td id='precioTotal'></td>
+      </tr>
+      `
+      /*
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -17,7 +26,7 @@ function productosCarrito(array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">`+ category.name +`</h4>                        
-                        <input type="number" class="quantity" value='` + category.count + `' name="quantity" min="1">
+                        <input type="number" class="quantity" name="quantity" min="1" onchange='calcular(this.value , ` + category.unitCost + `)'>
 
                     </div>
                     <div>
@@ -27,7 +36,7 @@ function productosCarrito(array){
                 </div>
             </div>
         </div>
-        `
+        */
 
         document.getElementById("productosCarritos").innerHTML = htmlContentToAppend;
     }
@@ -48,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-
+/*
 var cantidad = document.getElementsByClassName('quantity')
 var precio = document.getElementById('precio')
 
@@ -63,4 +72,23 @@ function mostrarCuentas(){
 }
 
 document.addEventListener('DOMContentLoaded',  mostrarCuentas() )
+*/
+var cantArt = [];
+var subSuma = [];
 
+
+function calcular(cantidad, precio){
+var total = (cantidad * precio)
+var precioTot = document.getElementById('precioTotal')
+precioTot.innerHTML = total
+
+/* let subTot = ""
+for (let i=0; i < subSuma.length; i++) 
+subTot += subSuma[i]
+console.log(subTot)
+*/
+
+
+}
+
+// Bruno, Diego, Thais, Victoria
