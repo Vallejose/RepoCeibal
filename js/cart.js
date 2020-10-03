@@ -14,7 +14,7 @@ function productosCarrito(array){
         <td>`+ category.name +`</td>
         <td>` + category.currency + ` ` + category.unitCost + `</td>
         <td><input type="number" class="quantity" name="quantity" min="1" onchange='calcular(this.value , ` + category.unitCost + `)'></td>
-        <td id='precioTotal'></td>
+        <td id='precioTotal' class='precioTotal'></td>
       </tr>
       `
       /*
@@ -79,7 +79,7 @@ var subSuma = [];
 
 function calcular(cantidad, precio){
 var total = (cantidad * precio)
-var precioTot = document.getElementById('precioTotal')
+var precioTot = document.getElementsByClassName('precioTotal')
 precioTot.innerHTML = total
 
 /* let subTot = ""
