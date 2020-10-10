@@ -55,10 +55,12 @@
 
   <div class="container">
 
-    <div class="row "><h1>Mi carrito</h1></div>
+    <div class="row  ">
+      <div class="col text-center"><h1>Mi carrito</h1></div></div>
+      
     <div class="row">
-      <div class="col-10 list-group-item">
-        <table>
+      <div class="col-9 list-group-item" id="productosCarritos">
+       <!-- <table>
           <thead>
             <tr class="table-active">
               <th scope="d-flex flex-wrap">Imagen</th>
@@ -73,8 +75,9 @@
             
           </tbody>
         </table>
+        -->
       </div>
-      <div class="col-2 list-group-item">
+      <div class="col-3 list-group-item">
         <h3>Tipo de entrega:</h3>
         <input type="radio" name="entrega" id="premium" value="premium" >
         <label for="Premium">Premium</label> </br>
@@ -97,7 +100,7 @@
       <div class="col-6 list-group-item">
         <h2>Resumen</h2>
         <label for="contacto">Sub total</label> </br>
-        <div id="subTotal">Monto subtotal</div>
+        <div id="totalParcial">Monto subtotal</div>
         <hr>
         <label for="envio">Envio</label> </br>
         <div id="envio">Monto subtotal</div>

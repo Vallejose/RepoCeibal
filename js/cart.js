@@ -3,49 +3,83 @@
 var carritoArray = [];
 
 function productosCarrito(array){
-
+   
     let htmlContentToAppend = "";
     for(let i = 0; i < array["articles"].length; i++){
         let category = array["articles"][i];
 
-        htmlContentToAppend += `
-        <tr class="table-warning">
-        <td class="d-flex flex-wrap"><img src="` + category.src + `"  class="img-thumbnail" width=35%></td>
-        <td>`+ category.name +`</td>
-        <td>` + category.currency + ` ` + category.unitCost + `</td>
-        <td><input type="number" class="quantity" name="quantity" min="1" onchange='calcular(this.value , ` + category.unitCost + `)'></td>
-        <td id='precioTotal' class='precioTotal'></td>
-      </tr>
-      `
-      /*
+        htmlContentToAppend = `     
         <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.src + `"  class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name +`</h4>                        
-                        <input type="number" class="quantity" name="quantity" min="1" onchange='calcular(this.value , ` + category.unitCost + `)'>
-
-                    </div>
-                    <div>
-                       
-                        <p>` + category.currency + ` ` + category.unitCost + `</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row">
+        <div class="col-3">
+        <img src="` + category.src + `"  class="img-thumbnail">
         </div>
-        */
+        <div class="col-6">
+        <h4 class="mb-1">`+ category.name +`</h4> 
+        <p>` + category.unitCost + ` </p>
+        <p>` + category.currency+ ` </p>
+        </div>
+        <div class="col-3">
+        <div class="row" id="inputCont`+i+`"></div>
+        <div class="row"> <h3>Sub total</h3></div>
+        <div class="row" id="product`+i+`" ></div>        
+        </div>
+        </div>
+        </div>
+        `
 
-        document.getElementById("productosCarritos").innerHTML = htmlContentToAppend;
+        document.getElementById("productosCarritos").innerHTML += htmlContentToAppend
+        // Contenedor del Input
+        var divCont = document.getElementById("inputCont"+i);
+
+        var parrafo = document.createElement("P");
+
+        // Creacion del input
+        var input = document.createElement("INPUT");
+	input.setAttribute("type", "number");
+	input.setAttribute("name", "cant");
+	input.setAttribute("min", "1");
+    input.setAttribute("max", "5");
+    input.setAttribute("id", "inputProduct"+i)
+    input.setAttribute("value", ``+ category.count +``);
+    input.setAttribute("onchange", "calcularSubTotal("+ category.unitCost +",this.value ,"+ i +", '"+ category.currency +"')");
+    input.setAttribute("onmousemove", "calcularSubTotal("+ category.unitCost +",this.value ,"+ i +", '"+ category.currency +"')");
+
+    //Agrego el input al contenedor
+    divCont.appendChild(parrafo);
+    parrafo.appendChild(input)
+
+   var divSubTot = document.getElementById("product"+i);
+   var parCosto = document.createElement("P");
+   var subTotal= document.createElement("span");
+   subTotal.setAttribute("id", "span"+i);
+   var textoSpan= document.createTextNode("");
+
+   divSubTot.appendChild(parCosto);
+   parCosto.appendChild(subTotal)
+   subTotal.appendChild(textoSpan)
+
     }
 }
 
- 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+/*
+var subTotal= document.createElement("span");
+	subTotal.setAttribute("id", "span"+i);
+	var textoSpan= document.createTextNode("Total"+i); */
+
+function calcularSubTotal(costo, cantidad, idParrafo, moneda){
+    if (moneda == "USD"){
+    var texto=costo*cantidad*40 ;
+    document.getElementById("span"+idParrafo).innerHTML = texto;
+} else {
+
+    var texto=costo*cantidad ;
+    document.getElementById("span"+idParrafo).innerHTML = texto;}
+}
+
+
+
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_PRODUCT).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -53,42 +87,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             carritoArray = resultObj.data;
             //Muestro las categorías ordenadas
             productosCarrito(carritoArray);
-        }
+            
+            
+           
+       
+    }
     });
 });
-
 /*
-var cantidad = document.getElementsByClassName('quantity')
-var precio = document.getElementById('precio')
-
-function mostrarCuentas(){
-    var arrayCantidad = [];
-    var imputsValues = document.getElementsByClassName('quantity'),
-    nameValues = [].map.call(imputsValues, function(valuesImputs){
-        arrayCantidad.push(valuesImputs.value)
-    })
-
-    console.log(arrayCantidad)
-}
-
-document.addEventListener('DOMContentLoaded',  mostrarCuentas() )
-*/
-var cantArt = [];
-var subSuma = [];
-
-
-function calcular(cantidad, precio){
-var total = (cantidad * precio)
-var precioTot = document.getElementsByClassName('precioTotal')
-precioTot.innerHTML = total
-
-/* let subTot = ""
-for (let i=0; i < subSuma.length; i++) 
-subTot += subSuma[i]
-console.log(subTot)
-*/
-
-
-}
-
-// Bruno, Diego, Thais, Victoria
+function calcularSubTotal(valor){
+ alert(valor)
+}*/

@@ -185,3 +185,9 @@ function mostrarPuntuacion(){
                     }
                 });
             });
+
+
+            function publicarComent(){
+              var calif =  document.getElementsByName('estrella')
+              alert(calif.value)
+            }
