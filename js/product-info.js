@@ -1,32 +1,13 @@
-var catalogo = {};
 
-function showImagesGallery(array) {
-
-    let htmlContentToAppend = "";
-
-    for (let i = 0; i < array.images.length; i++) {
-        let imageSrc = array.images[i];
-
-        htmlContentToAppend += `
-        <div class="carousel-item active" data-interval="10000">
-              <img src="` + imageSrc + `" class="d-block w-100" alt="1000">
-            </div>
-        
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
-}
-
+// Funcion carga del Imagenes y los datos del producto seleccionado
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             category = resultObj.data;
 
-            let carruselImg = document.getElementById("productImagesGallery");
-            
-            
+            let carruselImg = document.getElementById("productImagesGallery");            
 
+            //Carusel de imagenes
            carruselImg.innerHTML = ` <div class="carousel-item active">
             <img class="d-block w-100" src="` + category.images[0] + `" alt="First slide">
           </div>
@@ -42,47 +23,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
         <div class="carousel-item">
           <img class="d-block w-100" src="` + category.images[4] + `" alt="Third slide">
         </div>`
-            
-            
-            
-            
-            
+        
+        let categoryNameHTML = document.getElementById("categoryName");
+        let categoryDescriptionHTML = document.getElementById("categoryDescription");
+        let productCountHTML = document.getElementById("productCount");
+        let productCriteriaHTML = document.getElementById("productCriteria");
+        let productcategory = document.getElementById("productCategoria")
 
-        }
+        categoryNameHTML.innerHTML = category.name;
+        categoryDescriptionHTML.innerHTML = category.description;
+        productCountHTML.innerHTML = category.soldCount;
+        productCriteriaHTML.innerHTML = category.cost + "" + category.currency;
+        productcategory.innerHTML = category.category
+    
+    }
     });
 });
 
-
-
-
-
-
-
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            category = resultObj.data;
-
-            let categoryNameHTML = document.getElementById("categoryName");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
-            let productcategory = document.getElementById("productCategoria")
-
-            categoryNameHTML.innerHTML = category.name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.soldCount;
-            productCriteriaHTML.innerHTML = category.cost + "" + category.currency;
-            productcategory.innerHTML = category.category
-
-        }
-    });
-});
-
+// Muestra el JSON con los comentarios 
 var comentarios = [];
 function showComentsArray(array) {
 
@@ -90,9 +48,7 @@ function showComentsArray(array) {
     for (let i = 0; i < array.length; i++) {
         let coments = array[i];
 
-        htmlcoments += `
-     
-        
+        htmlcoments += `        
         <div class="col">
         <div class="row">
         <div class="list-group-item list-group-item-action">        
@@ -117,6 +73,7 @@ function showComentsArray(array) {
     }
 }
 
+// Funcion que inicializa el JSON
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -126,41 +83,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-
-    /*
-function puntuacionEstrellas(){
-    var valorE = document.calificacion.estrella
-    for(i = 0, i < valorE.length; i++; ){
-        if (valorE[i].checked){
-            alert(valorE.value)
-        }
-    }
-}
-var boton = document.getElementById('publicar')
-boton.addEventListener('onclick', puntuacionEstrellas())
-*/
-
-  /*  var calificacion = document.querySelectorAll('#valorEstrella')
-    function agregarComentarios(){
-        var comentario = document.getElementById('cComentario')
-        var usuario = window.sessionStorage.getItem('email')
-        
-        alert(calificacion.value) 
-    }
-    */
- /*   
-var puntuaciones = comentarios[score]
-function mostrarPuntuacion(){
-    for (let comentario of comentarios)
-    alert(puntuaciones)
-}
-   document.addEventListener('onload', mostrarPuntuacion())
-
-*/
-
-   // Productos relacionados
-  
-
+ 
+   // Funcion Productos relacionados
             document.addEventListener("DOMContentLoaded", function (e) {
                 getJSONData(PRODUCTS_URL).then(function (resultObj) {
                     if (resultObj.status === "ok") {
@@ -180,14 +104,11 @@ function mostrarPuntuacion(){
                         segundaDescripcion.innerHTML =  `<h2>` + category[3].name + `</h2>
                                                             <p>` + category[3].currency + ` ` + category[3].cost + `</p>`
                         
-                        
-            
                     }
                 });
             });
-
-
-            function publicarComent(){
+            
+          /*  function publicarComent(){
               var calif =  document.getElementsByName('estrella')
               alert(calif.value)
-            }
+            } */

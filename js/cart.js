@@ -1,4 +1,4 @@
-// Funcion visualisar lista de productos
+// Funcion visualisar lista de productos en el carrito
 
 var carritoArray = [];
 
@@ -34,7 +34,7 @@ function productosCarrito(array){
 
         var parrafo = document.createElement("P");
 
-        // Creacion del input
+        // Creacion del input de cant. De productos
         var input = document.createElement("INPUT");
 	input.setAttribute("type", "number");
 	input.setAttribute("name", "cant");
@@ -49,12 +49,14 @@ function productosCarrito(array){
     divCont.appendChild(parrafo);
     parrafo.appendChild(input)
 
+    // Funcion creacion del contenedor con el total $ del producto
    var divSubTot = document.getElementById("product"+i);
    var parCosto = document.createElement("P");
    var subTotal= document.createElement("span");
    subTotal.setAttribute("id", "span"+i);
    var textoSpan= document.createTextNode("");
 
+   // Agrego el total $ del producto al html
    divSubTot.appendChild(parCosto);
    parCosto.appendChild(subTotal)
    subTotal.appendChild(textoSpan)
@@ -62,11 +64,8 @@ function productosCarrito(array){
     }
 }
 
-/*
-var subTotal= document.createElement("span");
-	subTotal.setAttribute("id", "span"+i);
-	var textoSpan= document.createTextNode("Total"+i); */
 
+// Funcion calcular el costo total de un producto
 function calcularSubTotal(costo, cantidad, idParrafo, moneda){
     if (moneda == "USD"){
     var texto=costo*cantidad*40 ;
@@ -79,7 +78,7 @@ function calcularSubTotal(costo, cantidad, idParrafo, moneda){
 
 
 
-
+// Funcion cargo el Json con los productos
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_PRODUCT).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -94,7 +93,3 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     });
 });
-/*
-function calcularSubTotal(valor){
- alert(valor)
-}*/
