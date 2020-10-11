@@ -41,7 +41,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Usuario
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -56,17 +57,20 @@
   <div class="container">
 
     <div class="row  ">
-      <div class="col text-center"><h1>Mi carrito</h1></div></div>
+      <div class="col text-center">
+        <h1>Mi carrito</h1>
+      </div>
+    </div>
 
-      <!-- Productos del carrito  -->
+    <!-- Productos del carrito  -->
     <div class="row">
-      <div class="col-9 list-group-item" id="productosCarritos">      
+      <div class="col-9 list-group-item" id="productosCarritos">
       </div>
 
       <!-- Tipos de entrega  -->
       <div class="col-3 list-group-item">
         <h3>Tipo de entrega:</h3>
-        <input type="radio" name="entrega" id="premium" value="premium" >
+        <input type="radio" name="entrega" id="premium" value="premium">
         <label for="Premium">Premium</label> </br>
         <input type="radio" name="entrega" id="noPremium" value="noPremium">
         <label for="noPremium">No premium</label> </br>
@@ -90,7 +94,7 @@
         <!-- Resumen del coto  -->
         <h2>Resumen</h2>
         <label for="contacto">Sub total</label> </br>
-        <div id="totalParcial">Monto subtotal</div>
+        <div id="totalParcial">0</div>
         <hr>
         <label for="envio">Envio</label> </br>
         <div id="envio">Monto subtotal</div>
@@ -108,14 +112,14 @@
     </div>
 
     <!-- Boton de confirmacion -->
-    <div class="row " >
-        <button type="button" class="btn btn-block btn-lg btn-warning">Confirmar</button>
+    <div class="row ">
+      <button type="button" class="btn btn-block btn-lg btn-warning">Confirmar</button>
     </div>
 
-    
+
 
   </div>
- 
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

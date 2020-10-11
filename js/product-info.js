@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             category = resultObj.data;
 
-            let carruselImg = document.getElementById("productImagesGallery");            
+            let carruselImg = document.getElementById("productImagesGallery");
 
             //Carusel de imagenes
-           carruselImg.innerHTML = ` <div class="carousel-item active">
+            carruselImg.innerHTML = ` <div class="carousel-item active">
             <img class="d-block w-100" src="` + category.images[0] + `" alt="First slide">
           </div>
           <div class="carousel-item">
@@ -23,20 +23,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
         <div class="carousel-item">
           <img class="d-block w-100" src="` + category.images[4] + `" alt="Third slide">
         </div>`
-        
-        let categoryNameHTML = document.getElementById("categoryName");
-        let categoryDescriptionHTML = document.getElementById("categoryDescription");
-        let productCountHTML = document.getElementById("productCount");
-        let productCriteriaHTML = document.getElementById("productCriteria");
-        let productcategory = document.getElementById("productCategoria")
 
-        categoryNameHTML.innerHTML = category.name;
-        categoryDescriptionHTML.innerHTML = category.description;
-        productCountHTML.innerHTML = category.soldCount;
-        productCriteriaHTML.innerHTML = category.cost + "" + category.currency;
-        productcategory.innerHTML = category.category
-    
-    }
+            let categoryNameHTML = document.getElementById("categoryName");
+            let categoryDescriptionHTML = document.getElementById("categoryDescription");
+            let productCountHTML = document.getElementById("productCount");
+            let productCriteriaHTML = document.getElementById("productCriteria");
+            let productcategory = document.getElementById("productCategoria")
+
+            categoryNameHTML.innerHTML = category.name;
+            categoryDescriptionHTML.innerHTML = category.description;
+            productCountHTML.innerHTML = category.soldCount;
+            productCriteriaHTML.innerHTML = category.cost + "" + category.currency;
+            productcategory.innerHTML = category.category
+
+        }
     });
 });
 
@@ -83,32 +83,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
- 
-   // Funcion Productos relacionados
-            document.addEventListener("DOMContentLoaded", function (e) {
-                getJSONData(PRODUCTS_URL).then(function (resultObj) {
-                    if (resultObj.status === "ok") {
-                        category = resultObj.data;
-            
-                        let primeraImagen = document.getElementById("imagen1");
-                        let primeraDescripcion = document.getElementById("descripcion1");
-                        let segundaImagen = document.getElementById("imagen2");
-                        let segundaDescripcion = document.getElementById("descripcion2");
-                        
-            
-                        primeraImagen.innerHTML = `<img src="` + category[1].imgSrc + `" class="d-block w-100" alt="1000"></img>` ;
-                        primeraDescripcion.innerHTML =  `<h2>` + category[1].name + `</h2>
+
+// Funcion Productos relacionados
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            category = resultObj.data;
+
+            let primeraImagen = document.getElementById("imagen1");
+            let primeraDescripcion = document.getElementById("descripcion1");
+            let segundaImagen = document.getElementById("imagen2");
+            let segundaDescripcion = document.getElementById("descripcion2");
+
+
+            primeraImagen.innerHTML = `<img src="` + category[1].imgSrc + `" class="d-block w-100" alt="1000"></img>`;
+            primeraDescripcion.innerHTML = `<h2>` + category[1].name + `</h2>
                                                         <p>` + category[1].currency + ` ` + category[1].cost + `</p>`
-                                                                                
-                        segundaImagen.innerHTML = `<img src="` + category[3].imgSrc + `" class="d-block w-100" alt="1000"></img>` ;
-                        segundaDescripcion.innerHTML =  `<h2>` + category[3].name + `</h2>
+
+            segundaImagen.innerHTML = `<img src="` + category[3].imgSrc + `" class="d-block w-100" alt="1000"></img>`;
+            segundaDescripcion.innerHTML = `<h2>` + category[3].name + `</h2>
                                                             <p>` + category[3].currency + ` ` + category[3].cost + `</p>`
-                        
-                    }
-                });
-            });
-            
-          /*  function publicarComent(){
-              var calif =  document.getElementsByName('estrella')
-              alert(calif.value)
-            } */
+
+        }
+    });
+});
+
+/*  function publicarComent(){
+    var calif =  document.getElementsByName('estrella')
+    alert(calif.value)
+  } */

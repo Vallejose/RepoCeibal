@@ -27,13 +27,14 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Perfil</a>
-          <a class="dropdown-item" id="logOut"  href="#">Cerrar sesion</a>
+          <a class="dropdown-item" id="logOut" href="#">Cerrar sesion</a>
         </div>
       </div>
     </div>
@@ -41,40 +42,40 @@
 
   <main role="main">
     <div class="container mt-5">
-    <!-- Cabecera -->
+      <!-- Cabecera -->
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>       
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
       </div>
 
       <!-- Descripcion del producto -->
       <div class="conteiner" id="dProducto">
-      <h2 id="categoryName"></h2>
-      <hr class="my-3">
-      <dl>
-        <dt>Categoria</dt>
-        <dd>
-          <p id="productCategoria"></p>
-        </dd>
-        <dt>Descripción</dt>
-        <dd>
-          <p id="categoryDescription"></p>
-        </dd>
+        <h2 id="categoryName"></h2>
+        <hr class="my-3">
+        <dl>
+          <dt>Categoria</dt>
+          <dd>
+            <p id="productCategoria"></p>
+          </dd>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="categoryDescription"></p>
+          </dd>
 
-        <dt>Productos vendidos</dt>
-        <dd>
-          <p id="productCount"></p>
-        </dd>
+          <dt>Productos vendidos</dt>
+          <dd>
+            <p id="productCount"></p>
+          </dd>
 
-        <dt>Precio</dt>
-        <dd>
-          <p id="productCriteria"></p>
-        </dd>
-        
+          <dt>Precio</dt>
+          <dd>
+            <p id="productCriteria"></p>
+          </dd>
+
       </div>
 
       <hr class="my-3">
-    
+
       <!-- Imagenes -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -85,7 +86,7 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" id="productImagesGallery">
-        
+
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -97,98 +98,100 @@
         </a>
       </div>
 
-   
 
-    <hr class="my-3">
 
-    <!-- productos relacionado -->
-    <div class="conteiner text-center">
-      <h2>Productos relacionados</h2>
-    </div>
+      <hr class="my-3">
 
-    <div class="row">
-      <div class="col-6">
-        <div class="list-group-item list-group-item-action">
-          <div class="row">
-        <div class="col-6" id="imagen1">
-          HOLA
+      <!-- productos relacionado -->
+      <div class="conteiner text-center">
+        <h2>Productos relacionados</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="list-group-item list-group-item-action">
+            <div class="row">
+              <div class="col-6" id="imagen1">
+                HOLA
+              </div>
+              <div class="col-6" id="descripcion1">
+                <h1>HOLA</h1>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6" id="descripcion1">
-        <h1>HOLA</h1>
-      </div>
-    </div>
-      </div>
-      </div>
-      
 
-      
-      <div class="col-6">
-        <div class="list-group-item list-group-item-action">
-        <div class="row">
-        <div class="col-6" id="imagen2">
-          
+
+
+        <div class="col-6">
+          <div class="list-group-item list-group-item-action">
+            <div class="row">
+              <div class="col-6" id="imagen2">
+
+              </div>
+              <div class="col-6" id="descripcion2">
+                <h1></h1>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6" id="descripcion2">
-        <h1></h1>
       </div>
-    </div>
-      </div>
-    </div>
-  </div>
 
-  <hr class="my-3">
-    <!-- Comentarios -->
-    <div class="conteiner">
-    <div class="conteiner text-center">
-      <h2>Comentarios</h2>
-    </div>
-    <div class="conteiner">
-    <div class="col" id="coment">
-    </div>
-    </div>
-
-    <div class="conteiner">
-      <div class="col-md-12 justify-content-center">
-      <form class="form-horizontal" method="post">
-      <fieldset>
-
-        <hr class="my-3">
-
-        <!-- Publicar comentario -->
-      <div class="form-group">
-        <h2>Ingrese su comentario</h2>        
-    </div>
-    
-   <div class="conteiner mt-2" id="estrellas">
-    <div class="rating">
-     
-      <!-- Estrellas para calificar nuevos comentarios -->
-      <form name="calificacion" id="calificacion"> 
-      <input type="radio" name="estrella" id="star1" value="5"><label for="star1"></label>      
-      <input type="radio" name="estrella" id="star2" value="4"><label for="star2"></label>      
-      <input type="radio" name="estrella" id="star3" value="3"><label for="star3"></label>
-      <input type="radio" name="estrella" id="star4" value="2"><label for="star4"></label>
-      <input type="radio" name="estrella" id="star5" value="1"><label for="star5"></label>
-    </form> 
-    </div>
-    </div>
-
-    <div class="form-group " id="cComentario">        
-        <div class="col-md-8 mt-5">
-            <textarea class="form-control" id="message" name="message" placeholder="Ingrese su comentario." rows="7"></textarea>
+      <hr class="my-3">
+      <!-- Comentarios -->
+      <div class="conteiner">
+        <div class="conteiner text-center">
+          <h2>Comentarios</h2>
         </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-12 text-center">
-            <button type="button" class="btn btn-primary btn-lg" id="publicar" onclick="publicarComent()">Publicar</button>
+        <div class="conteiner">
+          <div class="col" id="coment">
+          </div>
         </div>
-    </div>
 
-    <fieldset>
-    </form>
-  </div>
-    </div>
+        <div class="conteiner">
+          <div class="col-md-12 justify-content-center">
+            <form class="form-horizontal" method="post">
+              <fieldset>
+
+                <hr class="my-3">
+
+                <!-- Publicar comentario -->
+                <div class="form-group">
+                  <h2>Ingrese su comentario</h2>
+                </div>
+
+                <div class="conteiner mt-2" id="estrellas">
+                  <div class="rating">
+
+                    <!-- Estrellas para calificar nuevos comentarios -->
+                    <form name="calificacion" id="calificacion">
+                      <input type="radio" name="estrella" id="star1" value="5"><label for="star1"></label>
+                      <input type="radio" name="estrella" id="star2" value="4"><label for="star2"></label>
+                      <input type="radio" name="estrella" id="star3" value="3"><label for="star3"></label>
+                      <input type="radio" name="estrella" id="star4" value="2"><label for="star4"></label>
+                      <input type="radio" name="estrella" id="star5" value="1"><label for="star5"></label>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="form-group " id="cComentario">
+                  <div class="col-md-8 mt-5">
+                    <textarea class="form-control" id="message" name="message" placeholder="Ingrese su comentario."
+                      rows="7"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-primary btn-lg" id="publicar"
+                      onclick="publicarComent()">Publicar</button>
+                  </div>
+                </div>
+
+                <fieldset>
+            </form>
+          </div>
+        </div>
   </main>
 
   <footer class="text-muted">
