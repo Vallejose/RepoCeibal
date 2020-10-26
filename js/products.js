@@ -1,4 +1,3 @@
-
 // Funcion visualisar lista de productos
 var productsArray = [];
 
@@ -16,7 +15,7 @@ function showProductsArray(array) {
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name + `</h4>
+                        <h4 class="mb-1">` + category.name + `</h4>
                         <small class="text-muted">` + category.soldCount + ` artículos</small>
 
                     </div>
@@ -37,8 +36,8 @@ function showProductsArray(array) {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
             //Muestro las categorías ordenadas
@@ -147,7 +146,7 @@ const filtrar = () => {
     const texto = buscador.value.toLowerCase();
     for (let producto of productsArray) {
         let nombre = producto.name.toLowerCase()
-        if (nombre.indexOf(texto) !== - 1) {
+        if (nombre.indexOf(texto) !== -1) {
 
 
             listado.innerHTML += `
@@ -158,7 +157,7 @@ const filtrar = () => {
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ producto.name + `</h4>
+                        <h4 class="mb-1">` + producto.name + `</h4>
                         <small class="text-muted">` + producto.soldCount + ` artículos</small>
 
                     </div>
@@ -178,29 +177,6 @@ const filtrar = () => {
 boton.addEventListener('click', filtrar)
 buscador.addEventListener('keyup', filtrar)
 
-/* Listado vacio 
-var listadovacio = document.getElementById('listadoVacio')
-function listadoVacio(){       
-    if (listado === null){
-        listadovacio.innerHTML =  ` +  <p>` + "producto no encontrado.." + `</p> + `
-    }
- }
-
- /* evento listado vacio 
- buscador.addEventListener('keyup', listadoVacio)
-
-
- */
-
 function desplegar() {
     window.location.href = "product-info.html"
 }
-
-
-
-// DESAFIATE 2.0
-
-/* const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const page_type = urlParams.get('page_type')
-console.log(page_type); */

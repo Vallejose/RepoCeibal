@@ -3,136 +3,255 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8fdbbfabb5.js" crossorigin="anonymous"></script>
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Usuario
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Perfil</a>
-          <a class="dropdown-item" id="logOut" href="#">Cerrar sesion</a>
+    <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuario
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                    <a class="dropdown-item" href="my-profile.html">Perfil</a>
+                    <a class="dropdown-item" id="logOut" href="#">Cerrar sesion</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container">
+    <div class="container">
 
-    <div class="row  ">
-      <div class="col text-center">
-        <h1>Mi carrito</h1>
-      </div>
-    </div>
+        <div class="row  ">
+            <div class="col text-center">
+                <h1>Mi carrito</h1>
+            </div>
+        </div>
 
-    <!-- Productos del carrito  -->
-    <div class="row">
-      <div class="col-9 list-group-item" id="productosCarritos">
-      </div>
+        <!-- Productos del carrito  -->
+        <div class="row">
+            <div class="col-9 list-group-item">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 120px;"></th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Costo</th>
+                                <th scope="col">Moneda</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Sub total</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
 
-      <!-- Tipos de entrega  -->
-      <div class="col-3 list-group-item">
-        <h3>Tipo de entrega:</h3>
-        <input type="radio" name="entrega" id="premium" value="premium">
-        <label for="Premium">Premium</label> </br>
-        <input type="radio" name="entrega" id="noPremium" value="noPremium">
-        <label for="noPremium">No premium</label> </br>
-        <hr>
+                        <tbody id="productosCarritos">
 
-        <!-- Forma de pago  -->
-        <h3>Forma de pago:</h3>
-        <input type="radio" name="pago" id="banco" value="banco">
-        <label for="banco">Transferencia bancaria</label> </br>
-        <input type="radio" name="pago" id="credito" value="tarjeta">
-        <label for="credito">Tarjeta de credito</label> </br>
-        <input type="radio" name="pago" id="efectivo" value="efectivo">
-        <label for="efectivo">Efectivo</label> </br>
-      </div>
-      <div class="col"></div>
-    </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    <div class="row">
-      <div class="col-6 list-group-item">
+            <!-- Tipos de entrega  -->
+            <div class="col-3 list-group-item" id="errorEntrega" name="radioEntrega">
+                <h3>Tipo de entrega:</h3>
+                <form onclick="costoEntrega()">
+                    <input type="radio" name="entrega" id="premium" value="15">
+                    <label for="Premium">Premium 15%</label> </br>
+                    <input type="radio" name="entrega" id="noPremium" value="7">
+                    <label for="noPremium">No premium 7%</label> </br>
+                    <input type="radio" name="entrega" id="standar" value="5">
+                    <label for="noPremium">Standar 5%</label> </br>
+                </form>
 
-        <!-- Resumen del coto  -->
-        <h2>Resumen</h2>
-        <label for="contacto">Sub total</label> </br>
-        <div id="totalParcial">0</div>
-        <hr>
-        <label for="envio">Envio</label> </br>
-        <div id="envio">Monto subtotal</div>
-        <hr>
-        <label for="total">Total</label> </br>
-        <div id="total">Monto subtotal</div>
-      </div>
-      <div class="col-6 list-group-item">
-        <h3>Contacto</h3>
-        <label for="direccion">Direccion de entrega</label> </br>
-        <input class="input-group input-group-lg" type="text" id="direccion"> </br>
-        <label for="contacto">Telefono de contacto</label> </br>
-        <input class="input-group input-group-lg" type="text" id="contacto">
-      </div>
-    </div>
+                <div id="mensajeError">
 
-    <!-- Boton de confirmacion -->
-    <div class="row ">
-      <button type="button" class="btn btn-block btn-lg btn-warning">Confirmar</button>
-    </div>
+                </div>
+
+            </div>
+        </div>
 
 
 
-  </div>
+        <div class="row">
+            <div class="col-6 list-group-item">
 
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+                <!-- Resumen del costo  -->
+                <h2>Resumen</h2>
+                <label for="contacto">Sub total</label> </br>
+                <div id="totalParcial">0</div>
+                <hr>
+                <label for="envio">Envio</label> </br>
+                <div id="envio">0</div>
+                <hr>
+                <label for="total">Total</label> </br>
+                <div id="total">0</div>
+            </div>
+            <div class="col-6 list-group-item">
+                <h3>Contacto</h3>
+                <label for="direccion">Direccion de entrega</label> </br>
+                <input class="input-group input-group-lg" type="text" id="direccion"> </br>
+                <label for="contacto">Telefono de contacto</label> </br>
+                <input class="input-group input-group-lg" type="text" id="contacto">
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h2>Forma de pago.</h2>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Barra de las pildoras-->
+                        <ul class="nav nav-pills" id="myTab" role="tablist">
+                            <li class="nav-item buttonpills">
+                                <a class="nav-link active" id="banco-tab" data-toggle="tab" href="#bancaria" role="pill" aria-controls="bancaria" aria-selected="true">Transferencia bacaria</a>
+                            </li>
+                            <li class="nav-item buttonpills">
+                                <a class="nav-link" id="credito-tab" data-toggle="tab" href="#credito" role="pill" aria-controls="credito" aria-selected="false">Tarjeta de credito</a>
+                            </li>
+                        </ul>
+
+
+
+                        <div class="tab-content" id="myTabContent">
+
+                            <!--Pildora 1-->
+                            <div class="tab-pane fade show active " id="bancaria" role="tabpanel" aria-labelledby="banco-tab">
+                                <div class="table-responsive">
+                                    <div class="table table-striped">
+
+
+                                        <form>
+                                            <!--Referencia transferencia BBVA-->
+                                            <label for="banco">Banco* </label> </br>
+                                            <select class="form-control form-control-sm" id="banco"> </br>
+                                                <option>Seleccione banco</option> 
+                                                <option>BROU</option> 
+                                                    <option>Scotia</option>
+                                                    <option>BBVA</option>
+                                                    <option>Itau</option>
+                                                </select>
+
+
+                                            <label for="cuenta">Cuenta bancaria* </label> </br>
+                                            <input class="input-group input-group-lg" type="text" id="cuenta"> </br>
+                                            <label for="moneda">Tipo de moneda* </label> </br>
+                                            <select class="form-control form-control-sm" id="moneda"> </br> 
+                                                <option>Seleccione moneda</option>
+                                                <option>Pesos uruguayos</option>
+                                                    <option>Dolar americano</option>
+                                                  </select>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Pildora 2-->
+
+                            <div class="tab-pane fade show" id="credito" role="tabpanel" aria-labelledby="credito-tab">
+                                <div class="table-responsive">
+                                    <div class="table table-striped">
+                                        <div class="container">
+                                            <form>
+                                                <!--Referencia Mercado libre-->
+
+                                                <label for="tarjeta">Númer de tarjeta* </label> </br>
+                                                <input class="input-group input-group-lg" type="text" id="tarjeta" required> </br>
+                                                <label for="datos">Nombre y apellido*</label> </br>
+                                                <input class="input-group input-group-lg" type="text" id="datos"> </br>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="fecha">fecha de expiracion*</label> </br>
+                                                        <input class="input-group input-group-lg" type="text" id="fecha"> </br>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="codigo">Código de seguridad*</label> </br>
+                                                        <input class="input-group input-group-lg" type="text" id="codigo"> </br>
+                                                    </div>
+                                                </div>
+                                                <label for="cedula">Cedula del titular*</label> </br>
+                                                <input class="input-group input-group-lg" type="text" id="cedula"> </br>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" onclick="validacionModal()">Confirmar</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Boton de confirmacion -->
+        <div class="row ">
+            <button type="button" value="10" class="btn btn-block btn-lg btn-warning" onclick="validarCampos()">Forma de pago</button>
+        </div>
+
+
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/dropzone.js"></script>
+        <script src="js/init.js"></script>
+        <script src="./js/cart.js"></script>
 </body>
 
 </html>
