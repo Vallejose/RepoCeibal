@@ -199,6 +199,7 @@ function validacionModal() {
 
     // Evalua si se lleno alguno de los formularios y cerra el modal
     if (boolBacario == true || boolcredito == true) {
+        alert("Compra exitosa!")
         $("#modal").modal("hide")
     } else {
         alert("Porfavor complete todos los campos")
