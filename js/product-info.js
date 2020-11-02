@@ -1,13 +1,12 @@
-
 // Funcion carga del Imagenes y los datos del producto seleccionado
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             category = resultObj.data;
 
             let carruselImg = document.getElementById("productImagesGallery");
 
-            //Carusel de imagenes
+            //Carusel de imagenes 
             carruselImg.innerHTML = ` <div class="carousel-item active">
             <img class="d-block w-100" src="` + category.images[0] + `" alt="First slide">
           </div>
@@ -19,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
           </div>
           <div class="carousel-item">
           <img class="d-block w-100" src="` + category.images[3] + `" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="` + category.images[4] + `" alt="Third slide">
-        </div>`
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="` + category.images[4] + `" alt="Third slide">
+            </div>`
 
             let categoryNameHTML = document.getElementById("categoryName");
             let categoryDescriptionHTML = document.getElementById("categoryDescription");
@@ -42,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 // Muestra el JSON con los comentarios 
 var comentarios = [];
+
 function showComentsArray(array) {
 
     let htmlcoments = "";
@@ -57,7 +57,7 @@ function showComentsArray(array) {
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">`+ coments.user + `</h5>
+                        <h5 class="mb-1">` + coments.user + `</h5>
                     </div>
                     <div>
                         <p>` + coments.description + `</p>
@@ -74,8 +74,8 @@ function showComentsArray(array) {
 }
 
 // Funcion que inicializa el JSON
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             comentarios = resultObj.data;
             //Muestro las categorías ordenadas
@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 // Funcion Productos relacionados
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             category = resultObj.data;
 
