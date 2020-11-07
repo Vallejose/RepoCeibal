@@ -22,7 +22,7 @@ function productosCarrito(array) {
         <td>` + category.currency + `</td>
         <td id="inputCont` + i + `"></td>
         <td id="product` + i + `"></td>
-        <td ><i class="fas fa-trash-alt" onclick="borrarItem()"></i></td>
+        <td ><i class="fas fa-trash-alt" onclick="eliminarProducto(` + i + `)"></i></td>
       </tr>
 
         `
@@ -204,4 +204,22 @@ function validacionModal() {
     } else {
         alert("Porfavor complete todos los campos")
     }
+}
+
+var vaciarCarrito = {
+    "articles": [{
+        "name": "",
+        "count": "",
+        "unitCost": "",
+        "currency": "",
+        "src": ""
+    }]
+}
+
+function eliminarProducto(valor) {
+    carritoArray["articles"].splice(valor, 1)
+
+    console.log(carritoArray)
+    productosCarrito(vaciarCarrito)
+    productosCarrito(carritoArray)
 }

@@ -8,24 +8,22 @@ function showProductsArray(array) {
         let category = array[i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action"  onclick="desplegar()">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+        <div class="col-md-4">
+            <div class="card card-producto d-flex flex-column ml-2">
+                    <img class="card-img-top" src="` + category.imgSrc + `" alt="` + category.description + `">
+                <div class="card-header">
+                    <h2 class="card-title">` + category.name + `</h2>
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + category.name + `</h4>
-                        <small class="text-muted">` + category.soldCount + ` artículos</small>
-
-                    </div>
+                <div class="card-body">                
+                    <small class="text-muted">` + category.soldCount + ` artículos</small>
                     <div>
-                        <p>` + category.description + `</p>
-                        <p>` + category.currency + ` ` + category.cost + `</p>
+                       <p>` + category.description + `</p>
+                       <p>` + category.currency + ` ` + category.cost + `</p>
                     </div>
                 </div>
             </div>
         </div>
+        
         `
 
         document.getElementById("listado").innerHTML = htmlContentToAppend;
@@ -150,28 +148,26 @@ const filtrar = () => {
 
 
             listado.innerHTML += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + producto.name + `</h4>
-                        <small class="text-muted">` + producto.soldCount + ` artículos</small>
-
+            <div class="col-md-4">
+                <div class="card card-producto d-flex flex-column justify-content-between ml-2 w-33" >
+                        <img class="card-img-top" src="` + producto.imgSrc + `" alt="` + producto.description + `">
+                    <div class="card-header">
+                        <h2 class="card-title">` + producto.name + `</h2>
                     </div>
-                    <div>
-                        <p>` + producto.description + `</p>
-                        <p>` + producto.currency + ` ` + producto.cost + `</p>
-                    </div>
+                        <div class="card-body">                
+                                <small class="text-muted">` + producto.soldCount + ` artículos</small>
+                            <div>
+                                <p>` + producto.description + `</p>
+                                <p>` + producto.currency + ` ` + producto.cost + `</p>
+                            </div>
+                     </div>
                 </div>
             </div>
-        </div>
-        `
+         `
         }
     }
 }
+
 
 /* evento buscador */
 boton.addEventListener('click', filtrar)

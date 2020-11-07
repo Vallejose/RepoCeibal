@@ -108,7 +108,51 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
-/*  function publicarComent(){
-    var calif =  document.getElementsByName('estrella')
-    alert(calif.value)
-  } */
+
+var rating = 0
+$(':radio').change(function() {
+    rating = this.value;
+
+});
+
+miComentario = {
+        "score": "",
+        "description": "",
+        "user": "",
+        "dateTime": ""
+    }
+    /*  function publicarComent(){
+        var calif =  document.getElementsByName('estrella')
+        alert(calif.value) } 
+    */
+
+// comentaios.push('')
+
+function agregarComentario() {
+
+
+    var cuerpoComentario = document.getElementById('cuerpoComent');
+
+    var fecha = new Date()
+
+    var fechaHoy = (fecha.getFullYear() + "-" + fecha.getMonth() + "-" + (fecha.getDay() + 1) + " " + fecha.getHours() + ":" + fecha.getMinutes())
+    var usuario = window.sessionStorage.getItem('email')
+
+    miComentario.score = rating
+    miComentario.description = cuerpoComentario.value
+    miComentario.user = usuario
+    miComentario.dateTime = fechaHoy
+
+
+    if (miComentario.score == "" || miComentario.description == "") {
+        alert('Por favor complete todos los campos')
+    } else {
+        comentarios.push(miComentario)
+        showComentsArray(comentarios)
+        cuerpoComentario.innerHTML = ""
+
+    }
+    //console.log(miComentario)
+
+
+}
