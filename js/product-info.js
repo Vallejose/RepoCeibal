@@ -149,7 +149,7 @@ function agregarComentario() {
     } else {
         comentarios.push(miComentario)
         showComentsArray(comentarios)
-        cuerpoComentario.innerHTML = ""
+        cuerpoComentario.innerHTML = null
 
     }
     //console.log(miComentario)

@@ -168,6 +168,7 @@ function validarCampos() {
 
     if (radio == true && inp1 == true && inp2 == true) {
         $("#modal").modal("show")
+
     } else {
         alert("debe completar todos los campos")
     }

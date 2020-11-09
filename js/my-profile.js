@@ -39,7 +39,7 @@ function perfilJson() {
         edadPerfil.innerHTML = datosGuardados.edad
         emailPerfil.innerHTML = datosGuardados.mail
         telefonoPerfil.innerHTML = datosGuardados.telefono
-            // imagenP.setAttribute("src", datosGuardados.imagen);
+        imagenP.setAttribute("src", datosGuardados.imagen);
     }
 
 
@@ -72,11 +72,17 @@ function validarModal() {
     var nuevaEdad = document.getElementById('modalEdad').value;
     var nuevoMail = document.getElementById('modalEmail').value;
     var nuevoTelefono = document.getElementById('modalTel').value;
+    var nuevaFoto = document.getElementById('modalImage').value;
+    var pegarFoto = document.getElementById('imagperfil').value
 
     miPerfil.nombre = nuevoNomre
     miPerfil.edad = nuevaEdad
     miPerfil.mail = nuevoMail
     miPerfil.telefono = nuevoTelefono
+    miPerfil.imagen = nuevaFoto
+        //document.getElementById('imagperfil').setAttribute('src', nuevaFoto)
+        //miPerfil.iamge = {};
+        //miPerfil.image.url = "";
 
 
     var datosPerfil = JSON.stringify(miPerfil)
@@ -85,31 +91,22 @@ function validarModal() {
 
     perfilJson()
     $("#modificarDatos").modal("hide")
+    nuevoNombre = null
+    nuevaEdad = null
+    nuevoMail = null
+    nuevoTelefono = null
+    nuevaFoto = null
+
+
 
     // console.log(miPerfil)
 }
 
 
-/* window.addEventListener('load', function() {
-
-    document.querySelector('input[type="file"]').addEventListener('change', function() {
-        if (this.files && this.files[0]) {
-            var img = document.getElementById("imagperfil");
-            var imgURL = URL.createObjectURL(this.files[0])
-            window.localStorage.setItem('imgPerfil', imgURL)
-            var cargarImg = window.localStorage.getItem('imgPerfil')
-            img.setAttribute('src', cargarImg);
-
-        }
-    })
-
-
-})*/
+/*
 
 var apiURL = "https://api.imgbb.com/1/upload?key=CLAVEDELAAPI&expiration=172800&key=687974cc599187852a41e7ac1bceede4";
-var prof = {};
-prof.pfp = {};
-prof.pfp.url = "";
+
 
 if (document.getElementById('modalImg').files.length != 0) {
     showSpinner()
@@ -127,23 +124,24 @@ if (document.getElementById('modalImg').files.length != 0) {
         .catch(error => console.error('Error', error))
         .then(response => {
             console.log('success', response);
-            prof.pfp.url = response.data.image.url;
+            miPerfil.image.url = response.data.image.url;
 
             document.getElementById('imagperfil').style.display = 'block';
-            document.getElementById('imagperfil').setAttribute('src', prof.pfp.url);
+            document.getElementById('imagperfil').setAttribute('src', miPerfil.image.url);
             document.getElementById('modalImg').value = null
 
-            prof = JSON.stringify(prof);
-            localStorage.setItem('prof', prof);
+            miPerfil = JSON.stringify(miPerfil);
+            localStorage.setItem('miPerfil', miPerfil);
             hideSpinner();
             console.log('los coambios se guardaron correctamente.')
 
         });
 
 } else {
-    prof = JSON.stringify(prof);
-    localStorage.setItem('prof', prof);
+    miPerfil = JSON.stringify(miPerfil);
+    localStorage.setItem('miPerfil', miPerfil);
     console.log('los cambios se guardaron correctamente.', 'success', 5);
     console.log(document.getElementById('modalImg').files.length)
 }
 // var iURL = response.data.imageurl;
+*/

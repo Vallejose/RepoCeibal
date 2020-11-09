@@ -8,7 +8,7 @@ function showProductsArray(array) {
         let category = array[i];
 
         htmlContentToAppend += `
-        <div class="col-md-4">
+        <div class="col-md-4" onclick="desplegar()">
             <div class="card card-producto d-flex flex-column ml-2">
                     <img class="card-img-top" src="` + category.imgSrc + `" alt="` + category.description + `">
                 <div class="card-header">
